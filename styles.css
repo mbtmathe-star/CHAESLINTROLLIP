@@ -245,5 +245,15 @@
 .serviceCard .checkList{grid-template-columns:1fr;margin-top:18px}
 .serviceCard .checkList span{font-size:13px;color:#ccc}
 @media(max-width:600px){.checkList{grid-template-columns:1fr}}
+
+/* Clickable expand list — one unified section, no side image panel */
+.expandList{margin-top:28px;border-top:1px solid #d8d8d2}
+.expandItem{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #d8d8d2;padding:20px 0;cursor:pointer;color:inherit;font-family:inherit}
+.expandHead{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:800;letter-spacing:-.01em}
+.expandHead i{font-style:normal;font-size:22px;font-weight:400;color:var(--gold);transition:transform .2s ease;flex:0 0 auto;margin-left:16px}
+.expandItem.open .expandHead i{transform:rotate(45deg)}
+.expandBody{display:none;margin-top:12px;font-size:14px;line-height:1.6;color:#555;max-width:640px}
+.expandItem.open .expandBody{display:block}
+.expandItem:hover .expandHead{color:var(--gold)}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
