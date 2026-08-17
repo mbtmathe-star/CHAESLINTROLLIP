@@ -261,5 +261,17 @@
 .heroContent.wide{left:6%;right:6%;max-width:none}
 .heroContent.wide h1{max-width:none}
 .heroContent.wide .heroCopy{max-width:640px}
+
+/* Who We Serve + The Approach, unified section */
+.whoServeGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;margin-top:26px;align-items:start}
+.whoServeGrid p{font-size:16px;line-height:1.65;max-width:none}
+.flowDiagram{display:flex;align-items:stretch;gap:0;margin-top:44px;flex-wrap:wrap}
+.flowStep{flex:1 1 200px;background:#fff;border:1px solid #d8d8d2;border-radius:18px;padding:28px 24px;text-align:center}
+.flowStep .flowNum{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.15em;margin-bottom:10px}
+.flowStep h3{font-size:26px;margin:0 0 8px;letter-spacing:-.03em}
+.flowStep p{font-size:13px;color:#666;line-height:1.5;margin:0}
+.flowArrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 16px;font-size:24px;color:var(--gold);font-weight:900}
+@media(max-width:900px){.whoServeGrid{grid-template-columns:1fr;gap:24px}}
+@media(max-width:700px){.flowDiagram{flex-direction:column}.flowArrow{transform:rotate(90deg);padding:8px 0}}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
