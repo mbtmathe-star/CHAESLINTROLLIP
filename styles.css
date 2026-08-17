@@ -287,5 +287,10 @@
 .splitCard .splitText p{font-size:16px;line-height:1.65}
 .splitCard .splitImage img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:900px){.splitCard{grid-template-columns:1fr}.splitCard .splitImage img{height:360px}.splitCard .splitText{padding:55px 7%}}
+
+/* Hover affordance on homepage rail cards — makes it obvious they're clickable */
+.program{position:relative}
+.program:after{content:"↗";position:absolute;z-index:3;top:24px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--gold);color:#080808;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;opacity:0;transform:scale(.7) rotate(-15deg);transition:opacity .25s ease,transform .25s ease}
+.program:hover:after{opacity:1;transform:scale(1) rotate(0)}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
