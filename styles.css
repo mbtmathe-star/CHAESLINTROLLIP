@@ -319,3 +319,6 @@
   .navlinks a{opacity:1;font-size:16px;font-weight:800}
 }
 @media(max-width:600px){.navlinks{top:72px}}
+
+/* Homepage hero — recentre the subject on narrow viewports instead of pushing him to the edge */
+@media(max-width:900px){#hero>img{object-position:68% 20%}}
