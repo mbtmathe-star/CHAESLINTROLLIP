@@ -322,3 +322,14 @@
 
 /* Homepage hero — recentre the subject on narrow viewports instead of pushing him to the edge */
 @media(max-width:900px){#hero>img{object-position:68% 20%}}
+
+/* Mobile spacing fix: .pagePanel (used across About, Business Consulting, Digital
+   Marketing and Contact for most page sections) had no tablet-width middle step —
+   it held desktop padding (90px) all the way down to 600px, unlike every other
+   section on the site, which steps down gradually. */
+@media(max-width:900px){.pagePanel{padding:60px 7%}}
+@media(max-width:600px){
+  .pagePanel{padding:48px 7%}
+  .ctaBand{padding:32px 26px}
+  .contactBox{padding:36px 24px}
+}
