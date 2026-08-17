@@ -266,12 +266,26 @@
 .whoServeGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;margin-top:26px;align-items:start}
 .whoServeGrid p{font-size:16px;line-height:1.65;max-width:none}
 .flowDiagram{display:flex;align-items:stretch;gap:0;margin-top:44px;flex-wrap:wrap}
-.flowStep{flex:1 1 200px;background:#fff;border:1px solid #d8d8d2;border-radius:18px;padding:28px 24px;text-align:center}
+.flowStep{flex:1 1 200px;background:#fff;border:1px solid #d8d8d2;border-radius:18px;padding:28px 24px;text-align:center;cursor:pointer;font-family:inherit;color:inherit;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.flowStep:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 16px 40px rgba(0,0,0,.12)}
 .flowStep .flowNum{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.15em;margin-bottom:10px}
-.flowStep h3{font-size:26px;margin:0 0 8px;letter-spacing:-.03em}
+.flowStep h3{display:flex;align-items:center;justify-content:center;gap:8px;font-size:26px;margin:0 0 8px;letter-spacing:-.03em}
+.flowStep h3 i{font-style:normal;font-size:20px;font-weight:400;color:var(--gold);transition:transform .2s ease}
+.flowStep.open h3 i{transform:rotate(45deg)}
 .flowStep p{font-size:13px;color:#666;line-height:1.5;margin:0}
+.flowStep .flowMore{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #eee;text-align:left}
+.flowStep.open .flowMore{display:block}
 .flowArrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 16px;font-size:24px;color:var(--gold);font-weight:900}
 @media(max-width:900px){.whoServeGrid{grid-template-columns:1fr;gap:24px}}
 @media(max-width:700px){.flowDiagram{flex-direction:column}.flowArrow{transform:rotate(90deg);padding:8px 0}}
+
+/* Split card — text and image as one seamless card, not two */
+.splitCard{margin:0 5.5% 16px;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;background:var(--paper)}
+.splitCard .splitText{padding:90px 7%;color:#080808}
+.splitCard .splitText h2{font-size:clamp(44px,5vw,78px);line-height:.9;letter-spacing:-.065em;margin:0 0 30px}
+.splitCard .splitText h2 span{color:var(--gold)}
+.splitCard .splitText p{font-size:16px;line-height:1.65}
+.splitCard .splitImage img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:900px){.splitCard{grid-template-columns:1fr}.splitCard .splitImage img{height:360px}.splitCard .splitText{padding:55px 7%}}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
