@@ -299,5 +299,20 @@
 .pillarCard .btn{width:max-content}
 @media(max-width:900px){.pillarCard{padding:40px}}
 @media(max-width:600px){.pillarCard{padding:30px}.pillarCard h3{font-size:38px}}
+
+/* Rail card hover — subtle scale + text label, entire card is the link */
+.program{position:relative}
+.program img{transition:transform .5s ease,filter .4s ease}
+.program:hover img{transform:scale(1.04)}
+.programExplore{position:absolute;z-index:3;bottom:24px;right:24px;background:#fff;color:#080808;padding:10px 20px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+.program:hover .programExplore{opacity:1;transform:translateY(0)}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
+
+/* Mobile nav dropdown — the hamburger toggles .navlinks.open, which needs its own display rule */
+@media(max-width:900px){
+  .navlinks{display:none;position:fixed;top:82px;left:0;right:0;background:#050505;flex-direction:column;align-items:flex-start;padding:22px 24px 28px;gap:20px;border-bottom:1px solid #191919;z-index:99;max-height:calc(100vh - 82px);overflow-y:auto}
+  .navlinks.open{display:flex}
+  .navlinks a{opacity:1;font-size:16px;font-weight:800}
+}
+@media(max-width:600px){.navlinks{top:72px}}
