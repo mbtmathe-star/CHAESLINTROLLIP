@@ -237,5 +237,13 @@
 .tabSwitch{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
 .tabBtn{background:transparent;border:1.5px solid currentColor;opacity:.5;border-radius:999px;padding:13px 28px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;color:inherit}
 .tabBtn.active{background:var(--gold);border-color:var(--gold);opacity:1;color:#080808}
+
+/* Checklist — clearer "what's included" presentation than a tag cloud */
+.checkList{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:24px}
+.checkList span{display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.4;color:inherit}
+.checkList span:before{content:"✓";color:var(--gold);font-weight:900;flex:0 0 auto}
+.serviceCard .checkList{grid-template-columns:1fr;margin-top:18px}
+.serviceCard .checkList span{font-size:13px;color:#ccc}
+@media(max-width:600px){.checkList{grid-template-columns:1fr}}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
