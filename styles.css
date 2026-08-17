@@ -222,5 +222,15 @@
 .reviewToggle:hover{background:#080808;color:#fff}
 @media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 7% 84px}.reviewGrid{grid-template-columns:1fr}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px}}
 @media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 7% 76px}}
+
+/* Hero stat badges + CTA band (used on service pages like Digital Marketing) */
+.heroStats{display:flex;flex-wrap:wrap;margin-top:44px;border-top:1px solid #202020;max-width:920px}
+.heroStats .stat{flex:1 1 160px;padding:22px 28px 0 0}
+.heroStats .stat strong{display:block;font-size:clamp(24px,3vw,34px);color:var(--gold);letter-spacing:-.03em;line-height:1}
+.heroStats .stat small{display:block;margin-top:8px;color:#999;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.ctaBand{margin:0 5.5% 16px;border-radius:26px;background:var(--gold);color:#080808;padding:50px 55px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.ctaBand h3{font-size:clamp(24px,3vw,38px);letter-spacing:-.04em;line-height:1.1;margin:0;max-width:620px}
+.ctaBand .btn{background:#080808;color:#fff;flex:0 0 auto}
+@media(max-width:900px){.heroStats .stat{flex:1 1 45%;padding-bottom:18px}.ctaBand{margin:0 6% 16px;padding:36px 28px}}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
