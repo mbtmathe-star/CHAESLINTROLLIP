@@ -255,5 +255,11 @@
 .expandBody{display:none;margin-top:12px;font-size:14px;line-height:1.6;color:#555;max-width:640px}
 .expandItem.open .expandBody{display:block}
 .expandItem:hover .expandHead{color:var(--gold)}
+
+/* Blurred background hero — full-bleed blurred photo, headline runs edge to edge */
+.hero.blurred>img{filter:saturate(.65) blur(16px);transform:scale(1.08)}
+.heroContent.wide{left:6%;right:6%;max-width:none}
+.heroContent.wide h1{max-width:none}
+.heroContent.wide .heroCopy{max-width:640px}
 @media(max-width:900px){.pageGrid,.storyGrid{grid-template-columns:1fr}.serviceGrid{grid-template-columns:1fr}.listRow{grid-template-columns:45px 1fr}.listRow p{grid-column:2}.digitalProof .steps{grid-template-columns:1fr 1fr}.nav{padding:0 20px}.navlinks{display:none}.menu{display:block;margin-left:auto}.navcta{display:none}.pageHero{padding:55px 6% 65px}.contactBox{margin:0 6% 70px;padding:45px 28px}}
 @media(max-width:600px){.digitalProof .steps{grid-template-columns:1fr}.pagePanel{padding:55px 7%}.serviceGrid,.listRows,.storyGrid{padding-left:6%;padding-right:6%}.listRow h3{font-size:28px}}
