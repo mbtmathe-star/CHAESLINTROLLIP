@@ -405,9 +405,9 @@
    Overrides the shared .rail/.statement/.pillars/... group and .reviews'
    own rule; scoped to these two selectors only so every other section in
    that shared group keeps its rounded floating-panel look. */
-.reviews,.pillars{margin:0;border-radius:0}
-@media(max-width:900px){.reviews,.pillars{margin:0;border-radius:0}}
-@media(max-width:600px){.reviews,.pillars{margin:0;border-radius:0}}
+.reviews{margin:0;border-radius:0}
+@media(max-width:900px){.reviews{margin:0;border-radius:0}}
+@media(max-width:600px){.reviews{margin:0;border-radius:0}}
 
 .pillarList button{transition:background .2s ease}
 .pillarList button:hover,.pillarBtn.open{background:linear-gradient(90deg,rgba(216,167,43,.08),transparent 70%)}
