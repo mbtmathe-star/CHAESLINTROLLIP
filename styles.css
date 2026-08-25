@@ -351,31 +351,34 @@
 .churchBanner img{width:100%;height:520px;object-fit:cover;display:block}
 @media(max-width:600px){.churchBanner img{height:340px}}
 
-/* Education & Training — announcement treatment, not a generic service card.
-   brochure_03 is a poster (logo + year stamp in the top corners) that must be
-   shown in full, so this uses aspect-ratio + object-fit:contain instead of the
-   cover-crop the other split cards use — the container's ratio matches the
-   artwork's real ratio (559:492) so there is no letterboxing at this width. */
-.splitCard.eduAnnounce{grid-template-columns:1.2fr 1fr;min-height:0;background:#050505;margin:0;border-radius:0;align-items:stretch}
-.splitCard.eduAnnounce .splitText{padding:24px 5% 24px 7%;display:flex;flex-direction:column;justify-content:center;color:#fff}
-.splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid rgba(216,167,43,.55);color:var(--gold);padding:7px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;width:fit-content}
-.splitCard.eduAnnounce .annBadge:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
-.splitCard.eduAnnounce h2{margin-bottom:10px;font-size:clamp(30px,3.6vw,50px);letter-spacing:-.03em}
-.splitCard.eduAnnounce .announceLine{font-size:clamp(16px,1.6vw,20px);font-weight:700;letter-spacing:-.005em;line-height:1.32;color:#eae8e2;margin:0 0 12px}
-.splitCard.eduAnnounce .announceLine .hl{color:var(--gold);font-weight:800}
-.splitCard.eduAnnounce .splitText>p{font-size:13px;line-height:1.6;letter-spacing:.005em;color:#9c9a94;max-width:460px}
+/* Education & Training — premium ivory/navy/gold announcement, not a
+   generic dark service card. brochure_03's top branding (logo + year
+   stamp) must stay fully visible, so this crops only the decorative
+   green strip at the very bottom via a slightly shorter aspect-ratio
+   than the source (559:455 vs the artwork's real 559:492). */
+.splitCard.eduAnnounce{grid-template-columns:1.2fr 1fr;min-height:0;background:#F3F0E8;margin:0;border-radius:0;align-items:stretch}
+.splitCard.eduAnnounce .splitText{padding:24px 5% 24px 7%;display:flex;flex-direction:column;justify-content:center;color:#171717}
+.splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;gap:9px;background:rgba(233,169,27,.1);border:1px solid rgba(233,169,27,.65);color:#071C2C;padding:7px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;width:fit-content}
+.splitCard.eduAnnounce .annBadge:before{content:"";width:5px;height:5px;border-radius:50%;background:#E9A91B}
+.splitCard.eduAnnounce h2{margin-bottom:10px;font-size:clamp(30px,3.6vw,50px);letter-spacing:-.03em;color:#071C2C}
+.splitCard.eduAnnounce h2 span{color:#E9A91B}
+.splitCard.eduAnnounce .announceLine{font-size:clamp(16px,1.6vw,20px);font-weight:600;letter-spacing:-.005em;line-height:1.32;color:#3a3a36;margin:0 0 12px}
+.splitCard.eduAnnounce .announceLine .hl{color:#071C2C;font-weight:800}
+.splitCard.eduAnnounce .splitText>p{font-size:13px;line-height:1.6;letter-spacing:.005em;color:#6b6a62;max-width:460px}
 .splitCard.eduAnnounce .actions{margin-top:16px}
 .splitCard.eduAnnounce .btn{transition:transform .35s ease,background-color .3s ease,border-color .3s ease,color .3s ease}
 .splitCard.eduAnnounce .btn:hover{transform:translateY(-3px)}
-.splitCard.eduAnnounce .btn.gold:hover{background:#e8b83c}
-.splitCard.eduAnnounce .btn.white{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff}
-.splitCard.eduAnnounce .btn.white:hover{background:#fff;color:#080808;border-color:#fff}
-.splitCard.eduAnnounce .splitImage{position:static;height:auto;aspect-ratio:559/455;background:#0d2745;align-self:stretch;overflow:hidden}
+.splitCard.eduAnnounce .btn.gold{background:#E9A91B;color:#071C2C}
+.splitCard.eduAnnounce .btn.gold:hover{background:#d99a0f}
+.splitCard.eduAnnounce .btn.white{background:transparent;border:1px solid #071C2C;color:#071C2C}
+.splitCard.eduAnnounce .btn.white:hover{background:#071C2C;color:#F3F0E8;border-color:#071C2C}
+.splitCard.eduAnnounce .splitImage{position:static;height:auto;aspect-ratio:559/455;background:#071C2C;align-self:stretch;overflow:hidden}
 .splitCard.eduAnnounce .splitImage img{position:static;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s ease}
 .splitCard.eduAnnounce .splitImage:hover img{transform:scale(1.035)}
 
-/* Cinematic scroll-reveal: staggered fade + rise, triggered by .in-view
-   (added via IntersectionObserver). Image gets a slower scale-down reveal. */
+/* Cinematic scroll-reveal: staggered fade + rise on the left, a slide-in
+   from the right + slight scale-settle on the image, triggered by
+   .in-view (added via IntersectionObserver). */
 .splitCard.eduAnnounce .annBadge,
 .splitCard.eduAnnounce h2,
 .splitCard.eduAnnounce .announceLine,
@@ -386,9 +389,9 @@
 .splitCard.eduAnnounce.in-view .announceLine{opacity:1;transform:translateY(0);transition-delay:.3s}
 .splitCard.eduAnnounce.in-view .splitText>p{opacity:1;transform:translateY(0);transition-delay:.44s}
 .splitCard.eduAnnounce.in-view .actions{opacity:1;transform:translateY(0);transition-delay:.58s}
-.splitCard.eduAnnounce .splitImage img{opacity:0;transform:scale(1.1)}
-.splitCard.eduAnnounce.in-view .splitImage img{opacity:1;transform:scale(1);transition:opacity 1.2s ease,transform 1.2s ease}
-.splitCard.eduAnnounce.in-view .splitImage:hover img{transform:scale(1.035)}
+.splitCard.eduAnnounce .splitImage img{opacity:0;transform:translateX(36px) scale(1.05)}
+.splitCard.eduAnnounce.in-view .splitImage img{opacity:1;transform:translateX(0) scale(1);transition:opacity 1.1s ease,transform 1.1s ease}
+.splitCard.eduAnnounce.in-view .splitImage:hover img{transform:translateX(0) scale(1.035)}
 @media(prefers-reduced-motion:reduce){
   .splitCard.eduAnnounce .annBadge,.splitCard.eduAnnounce h2,.splitCard.eduAnnounce .announceLine,.splitCard.eduAnnounce .splitText>p,.splitCard.eduAnnounce .actions,.splitCard.eduAnnounce .splitImage img{opacity:1!important;transform:none!important;transition:none!important}
 }
