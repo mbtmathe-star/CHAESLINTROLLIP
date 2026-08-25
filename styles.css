@@ -359,3 +359,23 @@
 /* Full-width editorial banner image — Church page */
 .churchBanner img{width:100%;height:520px;object-fit:cover;display:block}
 @media(max-width:600px){.churchBanner img{height:340px}}
+
+/* Education & Training — announcement treatment, not a generic service card.
+   brochure_03 is a poster (logo + year stamp in the top corners) that must be
+   shown in full, so this uses aspect-ratio + object-fit:contain instead of the
+   cover-crop the other split cards use — the container's ratio matches the
+   artwork's real ratio (559:492) so there is no letterboxing at this width. */
+.splitCard.eduAnnounce{grid-template-columns:.95fr 1.15fr;min-height:0;background:var(--paper)}
+.splitCard.eduAnnounce .splitText{padding:60px 6% 60px 7%;display:flex;flex-direction:column;justify-content:center}
+.splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;background:var(--gold);color:#080808;padding:9px 18px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;width:fit-content}
+.splitCard.eduAnnounce h2{margin-bottom:16px}
+.splitCard.eduAnnounce .announceLine{font-size:clamp(20px,2.1vw,27px);font-weight:800;line-height:1.32;color:#080808;margin:0 0 20px}
+.splitCard.eduAnnounce .announceLine .hl{color:var(--gold)}
+.splitCard.eduAnnounce .splitText>p{font-size:15px;line-height:1.6;color:#3a3a36;max-width:520px}
+.splitCard.eduAnnounce .actions{margin-top:26px}
+.splitCard.eduAnnounce .splitImage{position:static;height:auto;aspect-ratio:559/492;background:#0d2745;align-self:center}
+.splitCard.eduAnnounce .splitImage img{position:static;width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:900px){
+  .splitCard.eduAnnounce{grid-template-columns:1fr}
+  .splitCard.eduAnnounce .splitText{padding:50px 7%}
+}
