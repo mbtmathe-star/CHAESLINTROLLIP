@@ -210,8 +210,9 @@
 /* Reviews section */
 .reviews{margin:16px 20px 0;border-radius:30px;overflow:hidden;background:var(--paper);color:#080808;padding:92px 5.5% 100px}
 .reviews .sectionHead{max-width:1420px;margin:0 auto 40px}
-@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 7% 84px}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px}}
-@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 7% 76px}}
+@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:48px 7% 54px}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px}}
+@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:44px 7% 48px}}
+.reviews{position:relative}
 
 /* Hero stat badges + CTA band (used on service pages like Digital Marketing) */
 .heroStats{display:flex;flex-wrap:wrap;margin-top:44px;border-top:1px solid #202020;max-width:920px}
@@ -391,11 +392,15 @@
 .pillarVisual{background:var(--paper)}
 .pillarVisual img{object-fit:contain;object-position:center center}
 
-/* Our Clients — single-testimonial slider. One quote centred at a time,
-   prev/next arrows cycle through; black section, brand gold/green accents. */
-.reviews{background:#050505;color:#fff}
+/* Our Clients — single-testimonial slider over a looping video background.
+   One quote centred at a time, prev/next arrows cycle through; brand
+   gold/green accents. Section height trimmed down from the earlier version. */
+.reviews{background:#050505;color:#fff;padding:56px 5.5% 64px}
 .reviews .goldline{background:var(--gold)}
-.testSlider{display:flex;align-items:center;justify-content:center;gap:28px;max-width:900px;margin:0 auto;min-height:260px}
+.reviewsVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
+.reviews:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.82),rgba(5,5,5,.7) 40%,rgba(5,5,5,.88))}
+.reviewsInner{position:relative;z-index:2}
+.testSlider{display:flex;align-items:center;justify-content:center;gap:28px;max-width:900px;margin:0 auto;min-height:180px}
 .sliderArrow{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid #333;background:#141414;color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease,color .2s ease}
 .sliderArrow:hover{background:var(--gold);border-color:var(--gold);color:#080808}
 .sliderTrack{flex:1 1 auto;text-align:center}
