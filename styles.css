@@ -356,7 +356,7 @@
    stamp) must stay fully visible, so this crops only the decorative
    green strip at the very bottom via a slightly shorter aspect-ratio
    than the source (559:455 vs the artwork's real 559:492). */
-.splitCard.eduAnnounce{grid-template-columns:1.2fr 1fr;min-height:0;background:#F3F0E8;margin:0;border-radius:0;align-items:stretch}
+.splitCard.eduAnnounce{grid-template-columns:1.2fr 1fr;min-height:0;background:#F3F0E8;margin:0 20px;border-radius:0;align-items:stretch}
 .splitCard.eduAnnounce .splitText{padding:24px 5% 24px 7%;display:flex;flex-direction:column;justify-content:center;color:#171717}
 .splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;gap:9px;background:rgba(233,169,27,.1);border:1px solid rgba(233,169,27,.65);color:#071C2C;padding:7px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;width:fit-content}
 .splitCard.eduAnnounce .annBadge:before{content:"";width:5px;height:5px;border-radius:50%;background:#E9A91B}
@@ -396,25 +396,28 @@
   .splitCard.eduAnnounce .annBadge,.splitCard.eduAnnounce h2,.splitCard.eduAnnounce .announceLine,.splitCard.eduAnnounce .splitText>p,.splitCard.eduAnnounce .actions,.splitCard.eduAnnounce .splitImage img{opacity:1!important;transform:none!important;transition:none!important}
 }
 @media(max-width:900px){
-  .splitCard.eduAnnounce{grid-template-columns:1fr}
+  .splitCard.eduAnnounce{grid-template-columns:1fr;margin:0 12px}
   .splitCard.eduAnnounce .splitText{padding:28px 7%}
 }
+@media(max-width:600px){.splitCard.eduAnnounce{margin:0 10px}}
 
 /* Our Clients + final pillar section — full-width editorial sections, not
    floating rounded cards, matching the Education & Training treatment above.
    Overrides the shared .rail/.statement/.pillars/... group and .reviews'
    own rule; scoped to these two selectors only so every other section in
    that shared group keeps its rounded floating-panel look. */
-.reviews{margin:0;border-radius:0 0 30px 30px}
-@media(max-width:900px){.reviews{margin:0;border-radius:0 0 26px 26px}}
-@media(max-width:600px){.reviews{margin:0;border-radius:0 0 22px 22px}}
+.reviews{margin:0 20px;border-radius:0 0 30px 30px}
+@media(max-width:900px){.reviews{margin:0 12px;border-radius:0 0 26px 26px}}
+@media(max-width:600px){.reviews{margin:0 10px;border-radius:0 0 22px 22px}}
 
-/* First video section — full width, rounded only at the top, so it and
-   Our Clients below (rounded only at the bottom) read as one continuous
-   video block with four corners total, not eight. */
-.quote{margin:0;border-radius:30px 30px 0 0}
-@media(max-width:900px){.quote{margin:0;border-radius:26px 26px 0 0}}
-@media(max-width:600px){.quote{margin:0;border-radius:22px 22px 0 0}}
+/* First video (quote) + Education & Training + Our Clients (reviews) now
+   read as ONE unified floating card, inset the same as every other
+   section (matching the pillars section's width) — rounded only at the
+   very top (quote) and very bottom (reviews), flush and square where
+   they meet in between, so it's one continuous block, not three. */
+.quote{margin:16px 20px 0;border-radius:30px 30px 0 0}
+@media(max-width:900px){.quote{margin:12px 12px 0;border-radius:26px 26px 0 0}}
+@media(max-width:600px){.quote{margin:10px 10px 0;border-radius:22px 22px 0 0}}
 
 .pillarList button{transition:background .2s ease}
 .pillarList button:hover,.pillarBtn.open{background:linear-gradient(90deg,rgba(216,167,43,.08),transparent 70%)}
