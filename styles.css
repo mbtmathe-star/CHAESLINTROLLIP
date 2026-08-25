@@ -391,22 +391,26 @@
 .pillarVisual{background:var(--paper)}
 .pillarVisual img{object-fit:contain;object-position:center center}
 
-/* Our Clients — asymmetric bento grid (one large featured card + two
-   standard cards), black section, brand gold/green accents, with a
-   View more/less expand toggle (no auto-scroll). */
+/* Our Clients — single-testimonial slider. One quote centred at a time,
+   prev/next arrows cycle through; black section, brand gold/green accents. */
 .reviews{background:#050505;color:#fff}
 .reviews .goldline{background:var(--gold)}
-.testBento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:20px;max-width:1420px;margin:0 auto}
-.testCard{display:flex;flex-direction:column;background:#141414;border:1px solid #262626;border-radius:18px;padding:28px;text-align:left}
-.testFeatured{grid-row:1/3;padding:36px;justify-content:center}
-.testHead{display:flex;align-items:center;gap:13px;margin-bottom:16px}
-.testAvatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#080808;flex:0 0 auto}
-.testHead h3{font-size:15px;font-weight:800;color:#fff;margin:0;letter-spacing:-.01em}
-.testHandle{font-size:12px;color:#8a8a85;margin:2px 0 0}
-.testQuote{font-size:14px;line-height:1.65;color:#c7c7c2;margin:0}
-.testFeatured .testQuote{font-size:19px;font-weight:500;line-height:1.55;color:#e8e8e4}
-.testMore{display:none;margin-top:12px;font-size:14px;line-height:1.65;color:#c7c7c2}
-.testCard.expanded .testMore{display:block}
-.testToggle{margin-top:18px;align-self:flex-start;background:none;border:1px solid #3a3a3a;border-radius:999px;padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#fff}
-.testToggle:hover{background:var(--gold);border-color:var(--gold);color:#080808}
-@media(max-width:900px){.testBento{grid-template-columns:1fr;grid-template-rows:none}.testFeatured{grid-row:auto}}
+.testSlider{display:flex;align-items:center;justify-content:center;gap:28px;max-width:900px;margin:0 auto;min-height:260px}
+.sliderArrow{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid #333;background:#141414;color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.sliderArrow:hover{background:var(--gold);border-color:var(--gold);color:#080808}
+.sliderTrack{flex:1 1 auto;text-align:center}
+.sliderSlide{display:none}
+.sliderSlide.active{display:block;animation:sliderFade .45s ease}
+.sliderQuote{font-size:clamp(21px,2.5vw,30px);font-weight:600;line-height:1.42;color:#fff;max-width:720px;margin:0 auto 32px}
+.sliderAuthor{display:flex;align-items:center;justify-content:center;gap:14px}
+.sliderAuthor .testAvatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#080808;flex:0 0 auto}
+.sliderAuthor cite{font-style:italic;font-weight:800;color:#fff;display:block;font-size:15px}
+.sliderRole{color:#8a8a85;font-size:13px;display:block;margin-top:2px}
+@keyframes sliderFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+  .testSlider{flex-wrap:wrap;gap:16px}
+  .sliderTrack{order:1;flex-basis:100%}
+  .sliderArrow{order:2;width:36px;height:36px;font-size:17px}
+  .sliderArrow.right{order:3}
+  .sliderQuote{font-size:19px}
+}
