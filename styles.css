@@ -208,10 +208,10 @@
 .editorialCopy .btn{margin-top:12px}
 
 /* Reviews section */
-.reviews{margin:16px 20px 0;border-radius:30px;overflow:hidden;background:var(--paper);color:#080808;padding:92px 0 100px}
-.reviews .sectionHead{max-width:1420px;margin:0 auto 40px;padding:0 5.5%}
-@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 0 84px}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px;padding:0 7%}}
-@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 0 76px}}
+.reviews{margin:16px 20px 0;border-radius:30px;overflow:hidden;background:var(--paper);color:#080808;padding:92px 5.5% 100px}
+.reviews .sectionHead{max-width:1420px;margin:0 auto 40px}
+@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 7% 84px}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px}}
+@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 7% 76px}}
 
 /* Hero stat badges + CTA band (used on service pages like Digital Marketing) */
 .heroStats{display:flex;flex-wrap:wrap;margin-top:44px;border-top:1px solid #202020;max-width:920px}
@@ -391,25 +391,19 @@
 .pillarVisual{background:var(--paper)}
 .pillarVisual img{object-fit:contain;object-position:center center}
 
-/* Our Clients — testimonials marquee (black section, brand gold/green accents),
-   modelled on the "testimonials with marquee" pattern: two duplicated card
-   groups scrolling left on a continuous loop, pausing on hover, with a
-   gradient fade at each edge of the viewport. */
+/* Our Clients — static black cards, brand gold/green accents, with a
+   View more/less expand toggle (no auto-scroll). */
 .reviews{background:#050505;color:#fff}
 .reviews .goldline{background:var(--gold)}
-.marqueeWrap{position:relative;width:100%;overflow:hidden}
-.marqueeTrack{display:flex;gap:20px;width:max-content;animation:marqueeScroll 44s linear infinite}
-.marqueeWrap:hover .marqueeTrack{animation-play-state:paused}
-.marqueeGroup{display:flex;gap:20px;flex-shrink:0}
-.testCard{flex:0 0 340px;background:#141414;border:1px solid #262626;border-radius:18px;padding:28px;text-align:left}
+.testGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1420px;margin:0 auto}
+.testCard{display:flex;flex-direction:column;background:#141414;border:1px solid #262626;border-radius:18px;padding:28px;text-align:left}
 .testHead{display:flex;align-items:center;gap:13px;margin-bottom:16px}
 .testAvatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#080808;flex:0 0 auto}
 .testHead h3{font-size:15px;font-weight:800;color:#fff;margin:0;letter-spacing:-.01em}
 .testHandle{font-size:12px;color:#8a8a85;margin:2px 0 0}
 .testQuote{font-size:14px;line-height:1.65;color:#c7c7c2;margin:0}
-.marqueeFade{position:absolute;top:0;bottom:0;width:12%;pointer-events:none;z-index:2}
-.marqueeFade.left{left:0;background:linear-gradient(90deg,#050505,rgba(5,5,5,0))}
-.marqueeFade.right{right:0;background:linear-gradient(270deg,#050505,rgba(5,5,5,0))}
-@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:600px){.testCard{flex-basis:280px;padding:22px}.marqueeFade{width:8%}}
-@media(prefers-reduced-motion:reduce){.marqueeTrack{animation:none}}
+.testMore{display:none;margin-top:12px;font-size:14px;line-height:1.65;color:#c7c7c2}
+.testCard.expanded .testMore{display:block}
+.testToggle{margin-top:18px;align-self:flex-start;background:none;border:1px solid #3a3a3a;border-radius:999px;padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#fff}
+.testToggle:hover{background:var(--gold);border-color:var(--gold);color:#080808}
+@media(max-width:900px){.testGrid{grid-template-columns:1fr}}
