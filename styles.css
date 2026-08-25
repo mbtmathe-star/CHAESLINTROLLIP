@@ -208,20 +208,10 @@
 .editorialCopy .btn{margin-top:12px}
 
 /* Reviews section */
-.reviews{margin:16px 20px 0;border-radius:30px;overflow:hidden;background:var(--paper);color:#080808;padding:92px 5.5% 100px}
-.reviews .sectionHead{max-width:1420px;margin:0 auto 40px}
-.reviews .link{color:#080808;opacity:.7}.reviews .link:hover{opacity:1}
-.reviewGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1420px;margin:0 auto}
-.reviewCard{background:#fff;border:1px solid #e2e2db;border-radius:22px;padding:32px}
-.reviewCard .micro{color:#8a8a85}
-.reviewCard h3{font-size:24px;line-height:1.2;letter-spacing:-.03em;margin:14px 0 14px;color:#080808}
-.reviewCard p{color:#4a4a45;line-height:1.6;font-size:14px}
-.reviewFull{display:none;margin-top:12px}
-.reviewCard.expanded .reviewFull{display:block}
-.reviewToggle{margin-top:20px;background:none;border:1px solid #080808;border-radius:999px;padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#080808}
-.reviewToggle:hover{background:#080808;color:#fff}
-@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 7% 84px}.reviewGrid{grid-template-columns:1fr}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px}}
-@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 7% 76px}}
+.reviews{margin:16px 20px 0;border-radius:30px;overflow:hidden;background:var(--paper);color:#080808;padding:92px 0 100px}
+.reviews .sectionHead{max-width:1420px;margin:0 auto 40px;padding:0 5.5%}
+@media(max-width:900px){.reviews{margin:12px 12px 0;border-radius:26px;padding:78px 0 84px}.reviews .sectionHead{flex-direction:column;align-items:flex-start;gap:14px;padding:0 7%}}
+@media(max-width:600px){.reviews{margin:10px 10px 0;border-radius:22px;padding:70px 0 76px}}
 
 /* Hero stat badges + CTA band (used on service pages like Digital Marketing) */
 .heroStats{display:flex;flex-wrap:wrap;margin-top:44px;border-top:1px solid #202020;max-width:920px}
@@ -391,9 +381,6 @@
 @media(max-width:900px){.reviews,.pillars{margin:0;border-radius:0}}
 @media(max-width:600px){.reviews,.pillars{margin:0;border-radius:0}}
 
-.reviewCard{border-top:3px solid var(--gold);box-shadow:0 14px 34px rgba(0,0,0,.07);transition:transform .25s ease,box-shadow .25s ease}
-.reviewCard:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(0,0,0,.12)}
-
 .pillarList button{transition:background .2s ease}
 .pillarList button:hover,.pillarBtn.open{background:linear-gradient(90deg,rgba(216,167,43,.08),transparent 70%)}
 
@@ -404,9 +391,25 @@
 .pillarVisual{background:var(--paper)}
 .pillarVisual img{object-fit:contain;object-position:center center}
 
-/* Our Clients cards — replace the plain white card with restrained brand
-   colour so the section doesn't read as a wall of white. */
-.reviewCard{background:linear-gradient(180deg,#fff 72%,#fbf3dd 100%)}
-.reviewCard .micro{color:var(--gold);font-weight:900;letter-spacing:.09em}
-.reviewToggle{background:#080808;color:#fff;border-color:#080808}
-.reviewToggle:hover{background:var(--gold);color:#080808;border-color:var(--gold)}
+/* Our Clients — testimonials marquee (black section, brand gold/green accents),
+   modelled on the "testimonials with marquee" pattern: two duplicated card
+   groups scrolling left on a continuous loop, pausing on hover, with a
+   gradient fade at each edge of the viewport. */
+.reviews{background:#050505;color:#fff}
+.reviews .goldline{background:var(--gold)}
+.marqueeWrap{position:relative;width:100%;overflow:hidden}
+.marqueeTrack{display:flex;gap:20px;width:max-content;animation:marqueeScroll 44s linear infinite}
+.marqueeWrap:hover .marqueeTrack{animation-play-state:paused}
+.marqueeGroup{display:flex;gap:20px;flex-shrink:0}
+.testCard{flex:0 0 340px;background:#141414;border:1px solid #262626;border-radius:18px;padding:28px;text-align:left}
+.testHead{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.testAvatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#080808;flex:0 0 auto}
+.testHead h3{font-size:15px;font-weight:800;color:#fff;margin:0;letter-spacing:-.01em}
+.testHandle{font-size:12px;color:#8a8a85;margin:2px 0 0}
+.testQuote{font-size:14px;line-height:1.65;color:#c7c7c2;margin:0}
+.marqueeFade{position:absolute;top:0;bottom:0;width:12%;pointer-events:none;z-index:2}
+.marqueeFade.left{left:0;background:linear-gradient(90deg,#050505,rgba(5,5,5,0))}
+.marqueeFade.right{right:0;background:linear-gradient(270deg,#050505,rgba(5,5,5,0))}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:600px){.testCard{flex-basis:280px;padding:22px}.marqueeFade{width:8%}}
+@media(prefers-reduced-motion:reduce){.marqueeTrack{animation:none}}
