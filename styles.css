@@ -356,21 +356,45 @@
    shown in full, so this uses aspect-ratio + object-fit:contain instead of the
    cover-crop the other split cards use — the container's ratio matches the
    artwork's real ratio (559:492) so there is no letterboxing at this width. */
-.splitCard.eduAnnounce{grid-template-columns:1.3fr 1fr;min-height:0;background:#050505;margin:0;border-radius:0;align-items:stretch}
-.splitCard.eduAnnounce .splitText{padding:18px 5% 18px 7%;display:flex;flex-direction:column;justify-content:center;color:#fff}
-.splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#080808;padding:6px 14px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;width:fit-content}
-.splitCard.eduAnnounce .annBadge:before{content:"";width:6px;height:6px;border-radius:50%;background:#080808}
-.splitCard.eduAnnounce h2{margin-bottom:6px;font-size:clamp(26px,3vw,40px)}
-.splitCard.eduAnnounce .announceLine{font-size:clamp(15px,1.5vw,18px);font-weight:800;line-height:1.26;color:#fff;margin:0 0 8px}
-.splitCard.eduAnnounce .announceLine .hl{color:var(--gold)}
-.splitCard.eduAnnounce .announceLine .hl.brand{color:#3cb043;font-size:1.12em}
-.splitCard.eduAnnounce .splitText>p{font-size:12px;line-height:1.45;color:#b8b8b3;max-width:480px}
-.splitCard.eduAnnounce .actions{margin-top:10px}
+.splitCard.eduAnnounce{grid-template-columns:1.2fr 1fr;min-height:0;background:#050505;margin:0;border-radius:0;align-items:stretch}
+.splitCard.eduAnnounce .splitText{padding:24px 5% 24px 7%;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.splitCard.eduAnnounce .annBadge{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid rgba(216,167,43,.55);color:var(--gold);padding:7px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;width:fit-content}
+.splitCard.eduAnnounce .annBadge:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.splitCard.eduAnnounce h2{margin-bottom:10px;font-size:clamp(30px,3.6vw,50px);letter-spacing:-.03em}
+.splitCard.eduAnnounce .announceLine{font-size:clamp(16px,1.6vw,20px);font-weight:700;letter-spacing:-.005em;line-height:1.32;color:#eae8e2;margin:0 0 12px}
+.splitCard.eduAnnounce .announceLine .hl{color:var(--gold);font-weight:800}
+.splitCard.eduAnnounce .splitText>p{font-size:13px;line-height:1.6;letter-spacing:.005em;color:#9c9a94;max-width:460px}
+.splitCard.eduAnnounce .actions{margin-top:16px}
+.splitCard.eduAnnounce .btn{transition:transform .35s ease,background-color .3s ease,border-color .3s ease,color .3s ease}
+.splitCard.eduAnnounce .btn:hover{transform:translateY(-3px)}
+.splitCard.eduAnnounce .btn.gold:hover{background:#e8b83c}
+.splitCard.eduAnnounce .btn.white{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff}
+.splitCard.eduAnnounce .btn.white:hover{background:#fff;color:#080808;border-color:#fff}
 .splitCard.eduAnnounce .splitImage{position:static;height:auto;aspect-ratio:559/455;background:#0d2745;align-self:stretch;overflow:hidden}
-.splitCard.eduAnnounce .splitImage img{position:static;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.splitCard.eduAnnounce .splitImage img{position:static;width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s ease}
+.splitCard.eduAnnounce .splitImage:hover img{transform:scale(1.035)}
+
+/* Cinematic scroll-reveal: staggered fade + rise, triggered by .in-view
+   (added via IntersectionObserver). Image gets a slower scale-down reveal. */
+.splitCard.eduAnnounce .annBadge,
+.splitCard.eduAnnounce h2,
+.splitCard.eduAnnounce .announceLine,
+.splitCard.eduAnnounce .splitText>p,
+.splitCard.eduAnnounce .actions{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.splitCard.eduAnnounce.in-view .annBadge{opacity:1;transform:translateY(0);transition-delay:.05s}
+.splitCard.eduAnnounce.in-view h2{opacity:1;transform:translateY(0);transition-delay:.16s}
+.splitCard.eduAnnounce.in-view .announceLine{opacity:1;transform:translateY(0);transition-delay:.3s}
+.splitCard.eduAnnounce.in-view .splitText>p{opacity:1;transform:translateY(0);transition-delay:.44s}
+.splitCard.eduAnnounce.in-view .actions{opacity:1;transform:translateY(0);transition-delay:.58s}
+.splitCard.eduAnnounce .splitImage img{opacity:0;transform:scale(1.1)}
+.splitCard.eduAnnounce.in-view .splitImage img{opacity:1;transform:scale(1);transition:opacity 1.2s ease,transform 1.2s ease}
+.splitCard.eduAnnounce.in-view .splitImage:hover img{transform:scale(1.035)}
+@media(prefers-reduced-motion:reduce){
+  .splitCard.eduAnnounce .annBadge,.splitCard.eduAnnounce h2,.splitCard.eduAnnounce .announceLine,.splitCard.eduAnnounce .splitText>p,.splitCard.eduAnnounce .actions,.splitCard.eduAnnounce .splitImage img{opacity:1!important;transform:none!important;transition:none!important}
+}
 @media(max-width:900px){
   .splitCard.eduAnnounce{grid-template-columns:1fr}
-  .splitCard.eduAnnounce .splitText{padding:24px 7%}
+  .splitCard.eduAnnounce .splitText{padding:28px 7%}
 }
 
 /* Our Clients + final pillar section — full-width editorial sections, not
