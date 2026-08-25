@@ -391,19 +391,22 @@
 .pillarVisual{background:var(--paper)}
 .pillarVisual img{object-fit:contain;object-position:center center}
 
-/* Our Clients — static black cards, brand gold/green accents, with a
+/* Our Clients — asymmetric bento grid (one large featured card + two
+   standard cards), black section, brand gold/green accents, with a
    View more/less expand toggle (no auto-scroll). */
 .reviews{background:#050505;color:#fff}
 .reviews .goldline{background:var(--gold)}
-.testGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1420px;margin:0 auto}
+.testBento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:20px;max-width:1420px;margin:0 auto}
 .testCard{display:flex;flex-direction:column;background:#141414;border:1px solid #262626;border-radius:18px;padding:28px;text-align:left}
+.testFeatured{grid-row:1/3;padding:36px;justify-content:center}
 .testHead{display:flex;align-items:center;gap:13px;margin-bottom:16px}
 .testAvatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#080808;flex:0 0 auto}
 .testHead h3{font-size:15px;font-weight:800;color:#fff;margin:0;letter-spacing:-.01em}
 .testHandle{font-size:12px;color:#8a8a85;margin:2px 0 0}
 .testQuote{font-size:14px;line-height:1.65;color:#c7c7c2;margin:0}
+.testFeatured .testQuote{font-size:19px;font-weight:500;line-height:1.55;color:#e8e8e4}
 .testMore{display:none;margin-top:12px;font-size:14px;line-height:1.65;color:#c7c7c2}
 .testCard.expanded .testMore{display:block}
 .testToggle{margin-top:18px;align-self:flex-start;background:none;border:1px solid #3a3a3a;border-radius:999px;padding:10px 20px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#fff}
 .testToggle:hover{background:var(--gold);border-color:var(--gold);color:#080808}
-@media(max-width:900px){.testGrid{grid-template-columns:1fr}}
+@media(max-width:900px){.testBento{grid-template-columns:1fr;grid-template-rows:none}.testFeatured{grid-row:auto}}
