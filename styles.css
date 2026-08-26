@@ -175,7 +175,7 @@
 
 @media(max-width:900px){
   .shell,.rail,.statement,.pillars,.editorial,.quote,.digital,.metrics,.final{margin:12px 12px 0;border-radius:26px}
-  .heroShell{margin:0 12px;padding-top:12px}
+  .heroShell{margin:0;padding:12px 12px 0}
   .hero{border-radius:26px}
   .statement{padding:78px 7% 82px}
   .pillarMenu{padding:70px 7% 58px}
@@ -189,7 +189,7 @@
 }
 @media(max-width:600px){
   .shell,.rail,.statement,.pillars,.editorial,.quote,.digital,.metrics,.final{margin:10px 10px 0;border-radius:22px}
-  .heroShell{margin:0 10px;padding-top:10px}
+  .heroShell{margin:0;padding:10px 10px 0}
   .hero{border-radius:22px}
   .heroContent{top:9%}
   .statement{padding:70px 7% 74px}
