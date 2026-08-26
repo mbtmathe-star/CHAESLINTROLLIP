@@ -128,7 +128,7 @@
 /* DCI V3 — visual corrections */
 :root{--radius-xl:30px}
 .shell{margin:16px 20px 0;border-radius:30px;overflow:hidden}
-.heroShell{margin:0 20px;padding-top:16px}
+.heroShell{margin:0;padding-top:16px}
 .hero{border-radius:30px}
 .rail,.statement,.pillars,.editorial,.quote,.digital,.metrics,.final{
   margin:16px 20px 0;border-radius:30px;overflow:hidden
