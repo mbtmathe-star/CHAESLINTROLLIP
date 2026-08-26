@@ -262,7 +262,7 @@
 .heroContent.wide{left:6%;right:6%;max-width:none}
 .heroContent.wide h1{max-width:none}
 .heroContent.wide .heroCopy{max-width:640px}
-.heroContent.low{top:auto;bottom:10%}
+.heroContent.low{top:40%;bottom:auto;left:5%;max-width:440px}
 
 /* Who We Serve + The Approach, unified section */
 .whoServeGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;margin-top:26px;align-items:start}
