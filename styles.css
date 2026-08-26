@@ -262,8 +262,8 @@
 .heroContent.wide{left:6%;right:6%;max-width:none}
 .heroContent.wide h1{max-width:none}
 .heroContent.wide .heroCopy{max-width:640px}
-.heroContent.low{top:37%;bottom:auto;left:5%;max-width:380px}
-.heroContent.low .actions{margin-top:46px}
+.heroContent.low{top:35%;bottom:auto;left:5%;max-width:270px}
+.heroContent.low .actions{margin-top:24px}
 
 /* Who We Serve + The Approach, unified section */
 .whoServeGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;margin-top:26px;align-items:start}
