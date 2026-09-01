@@ -5,13 +5,14 @@
 .nav{height:82px;background:#050505;display:flex;align-items:center;padding:0 40px;gap:35px;position:sticky;top:0;z-index:100;border-bottom:1px solid #191919}
 .brand{font-weight:900;letter-spacing:.16em;font-size:17px;white-space:nowrap}.brand span{color:var(--gold)}.navlinks{display:flex;gap:28px;margin:auto;font-size:12px;font-weight:800}.navlinks a{opacity:.78;transition:.2s}.navlinks a:hover{opacity:1;color:var(--gold)}.navcta{background:#fff;color:#080808;padding:14px 22px;border-radius:999px;font-size:11px;font-weight:900;white-space:nowrap}.menu{display:none;background:none;border:0;color:#fff;font-size:24px}
 .heroShell{padding:18px 20px 0;background:#050505}.hero{height:min(790px,calc(100vh - 135px));min-height:650px;position:relative;overflow:hidden;border-radius:24px;background:#222;display:flex;flex-direction:column;justify-content:flex-end}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 21%;filter:saturate(.8)}
-/* Headline sits in normal flow now (no longer scattered absolutely
-   across the photo) so it, the subtitle and the button stack in order
-   at the bottom of the hero, clear of Chaeslin's face. */
-.heroTitle{position:relative;z-index:2;margin:0 5%;max-width:1000px;pointer-events:none}
-.hlLead,.hlWith,.hlVision{display:inline;font-size:clamp(44px,7vw,104px);font-weight:900;letter-spacing:-.075em;line-height:1;color:#fff}
-.hlLead{display:block}
-.hlWith,.hlVision{color:var(--gold)}
+/* Desktop headline: back to the original two-side layout — "Lead" on
+   the left, "with vision." on the right. Overridden for mobile only by
+   the #hero-scoped rules further down (higher specificity there). */
+.heroTitle{position:absolute;inset:0;z-index:2;margin:0;max-width:none;pointer-events:none}
+.hlLead,.hlWith,.hlVision{position:absolute;display:block;font-size:clamp(66px,8.8vw,130px);font-weight:900;letter-spacing:-.075em;line-height:.9;white-space:nowrap;color:#fff}
+.hlLead{left:5%;top:20%}
+.hlWith{left:66%;top:20%;color:var(--gold)}
+.hlVision{left:66%;top:34%;color:var(--gold)}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.38) 52%,rgba(0,0,0,.08) 82%),linear-gradient(0deg,rgba(0,0,0,.75),transparent 52%)}.heroContent{position:absolute;z-index:2;left:5%;top:15%;max-width:1000px}.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:900;display:flex;align-items:center;gap:10px}.eyebrow i{width:7px;height:7px;background:var(--gold);border-radius:50%;display:block}h1{font-size:clamp(60px,8.2vw,122px);line-height:.84;letter-spacing:-.075em;margin:22px 0 25px;font-weight:900;max-width:980px}h1 span{color:var(--gold)}.heroCopy{font-size:16px;line-height:1.5;max-width:590px;color:#ddd}
 .heroCopyStrong{color:#f4f4f0;text-shadow:0 2px 16px rgba(0,0,0,.85),0 1px 2px rgba(0,0,0,.9);font-weight:600}.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:999px;padding:15px 24px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}.btn.white{background:#fff;color:#080808}.btn.gold{background:var(--gold);color:#080808}.btn.white:visited,.btn.gold:visited{color:#080808}.link{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
 .floatCard{position:absolute;z-index:3;right:3%;bottom:5%;width:320px;border-radius:18px;overflow:hidden;background:#080808;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px rgba(0,0,0,.45)}.floatCard img{width:100%;height:150px;object-fit:cover;display:block;filter:brightness(.68)}.floatBody{padding:18px}.floatBody small{color:var(--gold);font-weight:900;font-size:9px;letter-spacing:.16em}.floatBody h3{font-size:32px;line-height:.9;letter-spacing:-.05em;margin:8px 0 15px}.floatFoot{display:flex;justify-content:space-between;color:#aaa;font-size:10px}.floatFoot b{color:#fff}
@@ -278,7 +279,8 @@
 @media(max-width:900px){
   #hero{display:block}
   #hero .heroTitle{position:absolute;top:6%;left:6%;right:6%;margin:0;z-index:2}
-  #hero .hlLead,#hero .hlWith,#hero .hlVision{font-size:clamp(42px,10vw,68px);line-height:1.04}
+  #hero .hlLead,#hero .hlWith,#hero .hlVision{position:relative;left:auto;top:auto;display:inline;white-space:normal;font-size:clamp(42px,10vw,68px);line-height:1.04}
+  #hero .hlLead{display:block}
   #hero .heroContent.low{position:absolute;top:48%;bottom:auto;left:6%;right:6%;margin:0;max-width:none}
   #hero .heroContent.low .actions{margin-top:16px}
 }
