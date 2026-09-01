@@ -273,7 +273,7 @@
    the headline at the bottom of the hero (see .hero's justify-content:
    flex-end above), so headline → subtitle → button always read in that
    order, clear of Chaeslin's face, on every screen size. */
-.heroContent.low{position:relative;z-index:2;margin:18px 5% 44px;max-width:440px;top:auto;left:auto;bottom:auto}
+.heroContent.low{position:absolute;z-index:2;top:37%;left:5%;bottom:auto;margin:0;max-width:440px}
 .heroContent.low .btn{white-space:nowrap}
 @media(max-width:600px){.heroContent.low{margin:14px 6% 32px;max-width:none}}
 
