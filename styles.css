@@ -278,13 +278,13 @@
 @media(max-width:900px){
   #hero{display:block}
   #hero .heroTitle{position:absolute;top:6%;left:6%;right:6%;margin:0;z-index:2}
-  #hero .hlLead,#hero .hlWith,#hero .hlVision{font-size:clamp(36px,8.6vw,58px);line-height:1.04}
-  #hero .heroContent.low{position:absolute;top:auto;bottom:9%;left:6%;right:6%;margin:0;max-width:none}
+  #hero .hlLead,#hero .hlWith,#hero .hlVision{font-size:clamp(42px,10vw,68px);line-height:1.04}
+  #hero .heroContent.low{position:absolute;top:48%;bottom:auto;left:6%;right:6%;margin:0;max-width:none}
   #hero .heroContent.low .actions{margin-top:16px}
 }
 @media(max-width:600px){
   #hero .heroTitle{top:5%}
-  #hero .heroContent.low{bottom:8%}
+  #hero .heroContent.low{top:50%}
 }
 
 /* Who We Serve + The Approach, unified section */
