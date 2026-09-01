@@ -271,6 +271,22 @@
 .heroContent.low .btn{white-space:nowrap}
 @media(max-width:600px){.heroContent.low{margin:14px 6% 32px;max-width:none}}
 
+/* MOBILE-ONLY homepage hero: pull the headline up into the open space
+   above Chaeslin's head, then stack the subtitle and button lower down,
+   clear of his face. Scoped to #hero (homepage only) so the desktop
+   hero and every other page's hero are completely untouched. */
+@media(max-width:900px){
+  #hero{display:block}
+  #hero .heroTitle{position:absolute;top:6%;left:6%;right:6%;margin:0;z-index:2}
+  #hero .hlLead,#hero .hlWith,#hero .hlVision{font-size:clamp(36px,8.6vw,58px);line-height:1.04}
+  #hero .heroContent.low{position:absolute;top:auto;bottom:9%;left:6%;right:6%;margin:0;max-width:none}
+  #hero .heroContent.low .actions{margin-top:16px}
+}
+@media(max-width:600px){
+  #hero .heroTitle{top:5%}
+  #hero .heroContent.low{bottom:8%}
+}
+
 /* Who We Serve + The Approach, unified section */
 .whoServeGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;margin-top:26px;align-items:start}
 .whoServeGrid p{font-size:16px;line-height:1.65;max-width:none}
