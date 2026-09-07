@@ -338,9 +338,10 @@
 /* Pillar list — accordion, expands inline where clicked. Image never changes. */
 .pillarList button{display:block}
 .pillarBtnHead{display:flex;align-items:center;gap:15px}
-.pillarBtnHead strong{flex:1}
+.pillarBtnHead strong{flex:1;color:#888}
 .pillarBtnHead i{font-style:normal;font-size:20px;font-weight:400;color:var(--gold);flex:0 0 auto;transition:transform .2s ease}
 .pillarBtn.open .pillarBtnHead strong{color:var(--gold)}
+.pillarBtn:active .pillarBtnHead strong{color:var(--gold)}
 .pillarBtn.open .pillarBtnHead i{transform:rotate(45deg)}
 .pillarBody{display:none;padding:18px 0 6px 39px}
 .pillarBtn.open .pillarBody{display:block}
@@ -504,7 +505,7 @@
   .pillars{margin:0 10px 6px;border-radius:0 0 22px 22px}
 }
 
-.pillarList button{transition:background .2s ease;-webkit-tap-highlight-color:rgba(120,120,120,.25)}
+.pillarList button{transition:background .2s ease;-webkit-tap-highlight-color:transparent;outline:none}
 .pillarList button:hover,.pillarBtn.open{background:linear-gradient(90deg,rgba(216,167,43,.08),transparent 70%)}
 
 /* Pillar poster (image-4.png) is a tall portrait graphic (1054x1492) — cover
