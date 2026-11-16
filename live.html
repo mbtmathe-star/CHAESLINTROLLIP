@@ -15,6 +15,9 @@ window.LIVE_SESSION={
   START:"2026-11-16T18:30",
   MINUTES:30,
   OPEN_EARLY:10,
+  // where attendee details go: your Google Form responses + an email to this address
+  FORM_ACTION:"https://docs.google.com/forms/d/e/1FAIpQLSedIajv5vU-ZdHgWws05Q5bYoag4XkfghCrUNPqLpkVF06X3g/formResponse",
+  NOTIFY_EMAIL:"info@legacybuilders.co.za",
   REGISTER_URL:"https://docs.google.com/forms/d/e/1FAIpQLSedIajv5vU-ZdHgWws05Q5bYoag4XkfghCrUNPqLpkVF06X3g/viewform"
 };
 </script>
@@ -23,8 +26,9 @@ window.LIVE_SESSION={
 
 <section class="splitCard balanced poster"><div class="splitText"><h2>Don't waste the rest of <span>2026.</span></h2><p>A new year doesn't automatically produce a new life. New decisions do. Before you write another list of resolutions, ask yourself what needs to change in your thinking, habits and actions if you want different results in 2027. In this free masterclass, Ps Chaeslin Trollip walks through five decisions across personal growth, leadership, business, discipline and execution that position you to win the year ahead.</p><a class="btn gold" id="registerBtnTop" href="#" target="_blank" rel="noopener" style="margin-top:22px">Register now — it's free</a></div><div class="splitImage"><img alt="Legacy Builders Live poster: Don't waste the rest of 2026, your 2027 starts now. Free online masterclass with Ps Chaeslin Trollip, Monday 16 November 2026, 18:30 to 19:00 SAST" src="assets/masterclass-2027-poster.jpeg" style="object-position:center top"></div></section><section class="liveCard"><div class="liveMeta"><div><b>NEXT SESSION</b><span id="liveWhen">—</span></div><div><b>DURATION</b><span id="liveDur">—</span></div><div><b>WHERE</b><span>Google Meet (online)</span></div></div>
 <div class="liveCountdown" id="liveCountdown"><div><span id="cdD">00</span><small>days</small></div><div><span id="cdH">00</span><small>hrs</small></div><div><span id="cdM">00</span><small>min</small></div><div><span id="cdS">00</span><small>sec</small></div></div>
-<p class="liveStatus" id="liveStatus">Loading…</p>
-<div class="actions liveActions"><a class="btn gold" id="joinBtn" href="#" target="_blank" rel="noopener" aria-disabled="true">Join on Google Meet</a><a class="btn white" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a><a class="btn white" id="icsBtn" href="#" download="live-session.ics">Add to Outlook / Apple</a></div>
+<form class="gateForm" id="gateForm" novalidate><p class="gateIntro"><b>Enter your details to get access.</b> We use them to admit you and send reminders. Nothing is shared.</p><div class="gateRow"><input type="text" id="gName" name="name" placeholder="Name" autocomplete="given-name" required><input type="text" id="gSurname" name="surname" placeholder="Surname" autocomplete="family-name" required></div><input type="email" id="gEmail" name="email" placeholder="Email address" autocomplete="email" required><button class="btn gold" type="submit" id="gateSubmit">Get access</button><p class="gateErr" id="gateErr" hidden>Please fill in your name, surname and a valid email.</p></form>
+<p class="liveStatus" id="liveStatus" hidden>Loading…</p>
+<div class="actions liveActions"><a class="btn gold" id="joinBtn" href="#" target="_blank" rel="noopener" aria-disabled="true" hidden>Join on Google Meet</a><a class="btn white" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a><a class="btn white" id="icsBtn" href="#" download="live-session.ics">Add to Outlook / Apple</a></div>
 <p class="liveHow"><b>How to join:</b> on a laptop, click the button and Meet opens in your browser (Chrome works best). On a phone, install the free Google Meet app first, then tap the button. You may be held in a waiting room for a moment until Chaeslin lets you in.</p></section>
 
 <section class="pagePanel" style="margin:0 5.5% 16px;border-radius:24px"><h2>Reserve your <span>spot.</span></h2><p>Registration is free and required. Once you have registered you will receive your access details for the session.</p><a class="btn gold" id="registerBtn" href="#" target="_blank" rel="noopener" style="margin-top:8px">Register for the session</a></section>
@@ -75,6 +79,25 @@ document.getElementById('menu')?.addEventListener('click',function(){const open=
     }
   }
   join.addEventListener('click',e=>{if(join.getAttribute('aria-disabled')==='true')e.preventDefault();});
+  // ---- access gate ----
+  const form=document.getElementById('gateForm'),err=document.getElementById('gateErr');
+  function unlock(){form.hidden=true;status.hidden=false;join.hidden=false;}
+  let saved=null;try{saved=JSON.parse(localStorage.getItem('lb_live_reg')||'null');}catch(e){}
+  if(saved&&saved.email){unlock();}
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const name=document.getElementById('gName').value.trim(),surname=document.getElementById('gSurname').value.trim(),email=document.getElementById('gEmail').value.trim();
+    if(!name||!surname||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.hidden=false;return;}
+    err.hidden=true;const btn=document.getElementById('gateSubmit');btn.textContent='One moment…';btn.disabled=true;
+    const full=name+' '+surname,when=new Date().toLocaleString('en-ZA',{timeZone:'Africa/Johannesburg'});
+    // 1) Google Form responses
+    const fd=new URLSearchParams({'entry.1182860893':full,'entry.404244486':'Email: '+email,'emailAddress':email,'entry.1051781558':'I agree that Legacy Builders may use my details to send me my access link and reminders for this masterclass.'});
+    fetch(S.FORM_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(()=>{});
+    // 2) email notification
+    fetch('https://formsubmit.co/ajax/'+S.NOTIFY_EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Live session access: '+full,_template:'table',name:name,surname:surname,email:email,session:S.title,time:when+' SAST',page:location.href})}).catch(()=>{});
+    try{localStorage.setItem('lb_live_reg',JSON.stringify({name:full,email:email,at:Date.now()}));}catch(e){}
+    setTimeout(unlock,600);
+  });
   tick();setInterval(tick,1000);
 })();
 </script></body></html>
