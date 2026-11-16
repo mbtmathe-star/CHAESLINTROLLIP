@@ -546,3 +546,31 @@
   .sliderArrow.right{order:3}
   .sliderQuote{font-size:19px}
 }
+
+/* Live session page */
+.liveCard{margin:0 5.5% 16px;border-radius:24px;background:#111;border:1px solid #262626;padding:50px 55px;color:#fff}
+.liveMeta{display:flex;flex-wrap:wrap;gap:30px 50px;margin-bottom:34px}
+.liveMeta div{display:flex;flex-direction:column;gap:6px}
+.liveMeta b{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.15em}
+.liveMeta span{font-size:18px;color:#f4f4f0}
+.liveCountdown{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.liveCountdown div{min-width:84px;padding:16px 12px;border-radius:16px;background:#080808;border:1px solid #2c2c2c;text-align:center}
+.liveCountdown span{display:block;font-size:38px;font-weight:900;letter-spacing:-.05em;line-height:1}
+.liveCountdown small{display:block;margin-top:6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#888}
+.liveStatus{display:flex;align-items:center;gap:10px;color:#bcbcb7;font-size:15px;margin:0 0 6px}
+.liveDot{width:10px;height:10px;border-radius:50%;background:#e03d3d;box-shadow:0 0 0 0 rgba(224,61,61,.6);animation:livePulse 1.4s infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(224,61,61,.6)}100%{box-shadow:0 0 0 12px rgba(224,61,61,0)}}
+.liveActions{margin-top:18px}
+#joinBtn[aria-disabled="true"]{opacity:.35;cursor:not-allowed}
+#joinBtn.isLive{box-shadow:0 0 0 4px rgba(201,162,77,.25)}
+.liveHow{color:#9a9a95;font-size:14px;line-height:1.6;max-width:720px;margin:28px 0 0}
+.liveHow b{color:#f4f4f0}
+.replayGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+.replay iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#000}
+.replay h3{font-size:22px;margin:12px 0 4px;letter-spacing:-.03em}
+.replay p{color:#888;font-size:13px;margin:0}
+@media(max-width:900px){.liveCard{margin:0 6% 16px;padding:36px 28px}.liveCountdown div{min-width:0;flex:1 1 40%}.replayGrid{grid-template-columns:1fr}}
+.splitCard.poster .splitImage{background:#0b0f14}
+.splitCard.poster .splitImage img{object-fit:contain;max-height:760px}
+@media(max-width:900px){.splitCard.poster .splitImage img{height:auto;max-height:none}}
+.splitCard.poster .splitText .btn{align-self:flex-start;width:auto}
