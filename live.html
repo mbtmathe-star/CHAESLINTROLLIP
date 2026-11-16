@@ -49,7 +49,6 @@ document.getElementById('menu')?.addEventListener('click',function(){const open=
   const pad=n=>String(n).padStart(2,'0');
   const fmtUTC=d=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
   document.title=S.title+' — Trollip Legacy Builders';
-  document.getElementById('liveBlurb').textContent=S.blurb;
   document.getElementById('liveWhen').textContent=start.toLocaleString('en-ZA',{weekday:'short',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Africa/Johannesburg'})+' SAST';
   document.getElementById('liveDur').textContent=S.MINUTES+' minutes';
   document.getElementById('registerBtn').href=S.REGISTER_URL;
