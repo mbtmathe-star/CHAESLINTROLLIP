@@ -24,7 +24,7 @@ window.LIVE_SESSION={
 <section class="pageHero compact"><p class="micro">FREE ONLINE MASTERCLASS · LIVE ON GOOGLE MEET</p><h1 id="liveTitle">Your 2027 <span>starts now.</span></h1></section>
 
 <section class="posterOnly"><img alt="Legacy Builders Live poster: Don't waste the rest of 2026, your 2027 starts now. Free online masterclass with Ps Chaeslin Trollip, Monday 16 November 2026, 18:30 to 19:00 SAST" src="assets/masterclass-2027-poster.jpeg"></section><section class="liveCard"><div class="liveMeta"><div><b>NEXT SESSION</b><span id="liveWhen">—</span></div><div><b>DURATION</b><span id="liveDur">—</span></div><div><b>WHERE</b><span>Google Meet (online)</span></div></div>
-<div class="liveCountdown" id="liveCountdown"><div><span id="cdD">00</span><small>days</small></div><div><span id="cdH">00</span><small>hrs</small></div><div><span id="cdM">00</span><small>min</small></div><div><span id="cdS">00</span><small>sec</small></div></div>
+<div class="liveNow" id="liveNow" hidden><span class="liveDot"></span>LIVE NOW</div><div class="liveCountdown" id="liveCountdown"><div><span id="cdD">00</span><small>days</small></div><div><span id="cdH">00</span><small>hrs</small></div><div><span id="cdM">00</span><small>min</small></div><div><span id="cdS">00</span><small>sec</small></div></div>
 <form class="gateForm" id="gateForm" novalidate><p class="gateIntro"><b>Enter your details to get access.</b> We use them to admit you and send reminders. Nothing is shared.</p><div class="gateRow"><input type="text" id="gName" name="name" placeholder="Name" autocomplete="given-name" required><input type="text" id="gSurname" name="surname" placeholder="Surname" autocomplete="family-name" required></div><input type="email" id="gEmail" name="email" placeholder="Email address" autocomplete="email" required><button class="btn gold" type="submit" id="gateSubmit">Get access</button><p class="gateErr" id="gateErr" hidden>Please fill in your name, surname and a valid email.</p></form>
 <p class="liveStatus" id="liveStatus" hidden>Loading…</p>
 <div class="actions liveActions"><a class="btn gold" id="joinBtn" href="#" target="_blank" rel="noopener" aria-disabled="true" hidden>Join on Google Meet</a><a class="btn white" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a><a class="btn white" id="icsBtn" href="#" download="live-session.ics">Add to Outlook / Apple</a></div>
@@ -63,7 +63,8 @@ document.getElementById('menu')?.addEventListener('click',function(){const open=
     if(now>=open&&now<=end){
       join.href=S.MEET_URL;join.classList.add('isLive');join.removeAttribute('aria-disabled');
       cd.style.display='none';
-      status.innerHTML=now>=start?'<span class="liveDot"></span>We are live now — click Join.':'<span class="liveDot"></span>The room is open — join any time.';
+      if(now>=start){document.getElementById('liveNow').hidden=false;status.innerHTML='<span class="liveDot"></span>Session in progress — click Join to come in.';}
+      else{status.innerHTML='<span class="liveDot"></span>The room is open — join any time.';}
     }else if(now>end){
       join.href='#';join.setAttribute('aria-disabled','true');cd.style.display='none';
       status.textContent='This session has ended. The next date will be posted here and a replay added below.';

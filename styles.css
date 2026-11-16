@@ -588,3 +588,6 @@
 .posterOnly{margin:0 5.5% 16px;border-radius:24px;overflow:hidden;background:#0b0f14;border:1px solid #262626}
 .posterOnly img{display:block;width:100%;max-width:640px;height:auto;margin:0 auto}
 @media(max-width:900px){.pageHero.compact{padding:34px 6% 28px}.pageHero.compact h1{font-size:clamp(44px,13vw,70px)}.posterOnly{margin:0 6% 16px;border-radius:18px}}
+.liveNow{display:inline-flex;align-items:center;gap:12px;background:#e03d3d;color:#fff;font-weight:900;letter-spacing:.14em;font-size:14px;padding:14px 22px;border-radius:999px;margin-bottom:22px}
+.liveNow .liveDot{background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7)}
+.liveNow[hidden]{display:none!important}
